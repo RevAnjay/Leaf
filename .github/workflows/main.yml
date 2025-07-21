@@ -12,11 +12,10 @@ jobs:
       - uses: actions/checkout@main
       - uses: gradle/wrapper-validation-action@main
       - name: Set up JDK
-        uses: graalvm/setup-graalvm@main
+        uses: actions/setup-java@v3
         with:
-          java-version: 17
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-          cache: gradle
+          distribution: 'temurin'
+          java-version: '21'
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
